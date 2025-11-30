@@ -1,3 +1,6 @@
+import json
+
+
 def demander_texte(phrase):
     if phrase == "":
         return "the phrase is empty"
@@ -27,5 +30,10 @@ def demander_choix(phrase, choices):
     reponse = int(input())
     while reponse <= 0 or reponse >= len(choices):
         reponse = int(input())
-    return reponse
+    return
+
+def charger_fichier(chemin_fichier):
+    with open(chemin_fichier, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data
 
