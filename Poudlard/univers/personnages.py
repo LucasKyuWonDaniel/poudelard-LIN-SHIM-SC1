@@ -9,7 +9,7 @@ def initialiser_personnage(nom, prenom, attributs):
     }
     return personnage
 
-def afficher_personnage(joueur):
+def afficher_personnage(joueur) :
     print("Profil du personnage :")
     for cle, valeur in joueur.items():
         if cle == "Attributs" :
@@ -18,3 +18,11 @@ def afficher_personnage(joueur):
                 print("-", cle1, ":", valeur1)
         else :
             print(cle, ":", valeur)
+
+def modifier_argent(joueur, montant) :
+    joueur["Argent"] += montant
+    return joueur
+
+def ajouter_objet(joueur, cle, objet) :
+    joueur[cle].append(objet)
+    return joueur
