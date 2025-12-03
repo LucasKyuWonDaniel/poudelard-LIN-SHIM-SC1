@@ -21,6 +21,7 @@ def repartition_maison(joueur, questions) :
     "Poufsouffle": 0, 
     "Serdaigle": 0 
   }
+  for 
 
 
 questions = [ 
@@ -40,3 +41,4 @@ questions = [
         ["Gryffondor", "Serpentard", "Poufsouffle", "Serdaigle"] 
     ) 
 ]
+
