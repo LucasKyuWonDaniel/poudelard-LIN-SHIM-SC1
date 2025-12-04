@@ -30,7 +30,7 @@ def demander_choix(phrase, choices):
     reponse = int(input())
     while reponse <= 0 or reponse >= len(choices):
         reponse = int(input())
-    return
+    return reponse
 
 def charger_fichier(chemin_fichier):
     with open(chemin_fichier, "r", encoding="utf-8") as f:
