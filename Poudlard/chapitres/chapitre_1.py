@@ -23,7 +23,6 @@ def creer_personnage():
     joueur1 = initialiser_personnage(nom, prenom, attributs)
     afficher_personnage(joueur1)
 
-print(creer_personnage())
 
 def recevoir_lettre():
     print("Une chouette traverse la fenêtre et vous apporte une lettre scelléedu sceau de Poudlard...")
@@ -52,11 +51,22 @@ def rencontrer_Hagrid():
     else:
         print("Veuillez entrer une reponse correcte : ")
 
-def acheter_fournitures():
+def acheter_fournitures(personnage):
     print("Bienvenue sur le Chemin de Traverse.")
     print("Catalogue des objets disponibles : ")
     print()
     print("1. Baguette magique  - 35 galions")
-    print("2. Robe de ")
+    print("2. Robe de sorcier   - 20 galions")
+    print("3. Chaudron en étain - 15 galions")
+    print("4. Manuel de potions - 25 galions")
+    print("5. Plume magique     - 5 galions")
+    print("6. Livre enchanté    - 30 galions")
+    print("7. Balance de cuivre - 10 galions")
+    print("8. Cape d'invisibilité - 100 galions")
     objets_obligatoire = ["Baguette magique", "Robe de sorcier", "Manuel de potions"]
-
+    prix=[35,20,15,25,5,30,10,100]
+    while len(objets_obligatoire) != 0:
+        print("Vous avez", personnage["Argent"], "galions")
+        print("Objets obligatoires restants à acheter :", [o for o in objets_obligatoire])
+        reponse = input("Entrer le numéro de l'objet à acheter : ")
+        print("Vous avez acheté : ", )

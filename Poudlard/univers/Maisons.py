@@ -55,6 +55,20 @@ def repartition_maison(joueur, questions) :
     return afficher_maison_gagnante(score_maisons)
 
 
+j1 = {
+    "Nom" : "SHIM" ,
+    "Prenom" : "Daniel" ,
+    "Argent" : 100,
+    "Inventaire" : ["couteau"],
+    "Sortilèges" : ["feu"] ,
+    "Attributs" : {"courage" : 8 ,
+    "intelligence" : 8 ,
+    "loyauté" : 8 ,
+    "ambition" : 8
+    }
+    }
+
+
 questions = [
     (
         "Tu vois un ami en danger. Que fais-tu ?",
@@ -75,3 +89,4 @@ questions = [
 ]
 
 
+print(repartition_maison(j1, questions))
