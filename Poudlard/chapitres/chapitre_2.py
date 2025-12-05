@@ -4,9 +4,9 @@ def rencontrer_amis(joueur) :
     print("Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord... ")
     print("Un garçon roux entre dans votre compartiment, l’air amical.")
     print("— Salut ! Moi c’est Ron Weasley. Tu veux bien qu’on s’assoie ensemble ? ")
+    L_réponse1 = ["1. Bien sûr, assieds-toi !", "2. Désolé, je préfère voyager seul."]
     print("Que répondez-vous ?")
-    print("1. Bien sûr, assieds-toi !")
-    print("2. Désolé, je préfère voyager seul.")
+    ch
     réponse1 = int(input("Votre choix :"))
     while réponse1 != 1 and réponse1 != 2 :
         réponse1 = int(input("Entrez une valeur correcte."))
@@ -54,6 +54,7 @@ def rencontrer_amis(joueur) :
     print("Le train continue sa route. Le château de Poudlard se profile à l’horizon... ")
     print("Tes choix semblent déjà en dire long sur ta personnalité !")
     print("Tes attributs mis à jour :", joueur["Attributs"])
+
 
 
 
