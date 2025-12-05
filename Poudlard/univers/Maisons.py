@@ -44,30 +44,13 @@ def repartition_maison(joueur, questions) :
             if j == 0 :
                 print(i[j])
             elif j == 1 :
-                for k in range(1, len(i[j]) + 1):
-                    print(k, ".", i[j][k - 1])
+                réponse = demande_choix("Ton choix :", i[j])
             else :
-                réponse = int(input("Ton choix : "))
                 actualiser_points_maison(score_maisons, i[j][réponse - 1], 3)
     print("Résumé des scores : ")
     for cle, valeur in score_maisons.items() :
         print(cle, ":", valeur, "points")
     return afficher_maison_gagnante(score_maisons)
-
-
-j1 = {
-    "Nom" : "SHIM" ,
-    "Prenom" : "Daniel" ,
-    "Argent" : 100,
-    "Inventaire" : ["couteau"],
-    "Sortilèges" : ["feu"] ,
-    "Attributs" : {"courage" : 8 ,
-    "intelligence" : 8 ,
-    "loyauté" : 8 ,
-    "ambition" : 8
-    }
-    }
-
 
 questions = [
     (
@@ -88,5 +71,3 @@ questions = [
 
 ]
 
-
-print(repartition_maison(j1, questions))
