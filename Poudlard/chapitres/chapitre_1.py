@@ -63,10 +63,13 @@ def acheter_fournitures(personnage):
     print("6. Livre enchanté    - 30 galions")
     print("7. Balance de cuivre - 10 galions")
     print("8. Cape d'invisibilité - 100 galions")
+    objets = ["Baguette magique", "Robe de sorcier","Chaudron en étain","Manuel de potions","Plume de magique", "Livre enchanté","Balance de cuivre", "Cape d'invisibilité"]
     objets_obligatoire = ["Baguette magique", "Robe de sorcier", "Manuel de potions"]
     prix=[35,20,15,25,5,30,10,100]
     while len(objets_obligatoire) != 0:
         print("Vous avez", personnage["Argent"], "galions")
         print("Objets obligatoires restants à acheter :", [o for o in objets_obligatoire])
-        reponse = input("Entrer le numéro de l'objet à acheter : ")
-        print("Vous avez acheté : ", )
+        reponse = int(input("Entrer le numéro de l'objet à acheter : "))
+        print("Vous avez acheté : ", objets[reponse-1])
+        personnage["Argent"] = personnage["Argent"] - prix[reponse-1]
+

@@ -2,38 +2,46 @@ import json
 
 
 def demander_texte(phrase):
-    if phrase == "":
-        return "the phrase is empty"
-    reponse = str(input(phrase ))
-    while len(reponse) < 1:
-        reponse = str(input(phrase ))
-    return reponse
+    while True:
+        reponse = input(phrase).strip()
+        if len(reponse) > 0:
+            return reponse
 
-#Pas Pafait comme dans la consigne, à revoir
-def demander_nombre(phrase, min_value = None, max_value = None):
-    reponse = int(input(phrase ))
-    if min_value is None:
-        return reponse
-    if max_value is None:
-        return reponse
-    else :
-        while reponse < min_value or reponse > max_value:
-            reponse = int(input(phrase))
-    return reponse
+
+def demander_nombre(phrase, minval=None, maxval=None):
+    while True:
+        saisie = input(phrase).strip()
+        est_bon_nombre = True
+        for caractere in saisie:
+            if caractere not in "0123456789":
+                est_bon_nombre = False
+                break
+        if est_bon_nombre:
+            nombre = 0
+            for caractere in saisie:
+                nombre = nombre * 10 + (ord(caractere) - ord('0'))
+
+            # Test bornes
+            if minval is None or nombre >= minval:
+                if maxval is None or nombre <= maxval:
+                    return nombre
+
+        print("Erreur ! Entrez un nombre valide.")
+
 
 def demander_choix(phrase, choices):
     print(phrase)
     print()
-    for i in range (len(choices)):
-        print("{}. {}".format(i+1, choices[i]))
-        print()
-    reponse = int(input())
-    while reponse <= 0 or reponse >= len(choices):
-        reponse = int(input())
-    return reponse
+    for i in range(len(choices)):
+        print(f"{i + 1}. {choices[i]}")
+    print()
+    reponse = demander_nombre("Votre choix : ", 1, len(choices))
+    return choices[reponse - 1]
 
-def charger_fichier(chemin_fichier):
+
+def load_fichier(chemin_fichier):
     with open(chemin_fichier, "r", encoding="utf-8") as f:
         data = json.load(f)
     return data
+
 
