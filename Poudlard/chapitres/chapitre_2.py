@@ -1,4 +1,5 @@
 from Poudlard.utils.input_utils import *
+from Poudlard.univers.Maisons import *
 
 def rencontrer_amis(joueur) :
     print("Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord... ")
@@ -45,7 +46,22 @@ def rencontrer_amis(joueur) :
     print("Tes choix semblent déjà en dire long sur ta personnalité !")
     print("Tes attributs mis à jour :", joueur["Attributs"])
 
+def mot_de_bienvenue() :
+    print("Bienvenue à Poudlard, jeune sorcier !")
+    print("Je suis le professeur Dumbledore, et je suis ravi", end = " ")
+    print("de t’accueillir pour cette nouvelle aventure magique.")
+    print("Prépare-toi à faire des choix importants...")
+    input("\n(Appuie sur Entrée pour continuer...) ")
 
+def ceremonie_repartition(joueur) :
+    print("La cérémonie de répartition commence dans la Grande Salle...")
+    print("Le Choixpeau magique t’observe longuement avant de poser ses questions :")
+    maison_gagnante = repartition_maison(joueur, question)
+    print("Le Choixpeau s’exclame :", maison_gagnante, "!!!")
+    print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
+
+def installation_salle_commune(joueur) :
+    print("Vous suivez les préfets à travers les couloirs du château...")
 
 
 
