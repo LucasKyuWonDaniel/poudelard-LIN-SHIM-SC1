@@ -80,7 +80,10 @@ def lancer_chapitre_2(personnage) :
     ceremonie_repartition(personnage)
     installation_salle_commune(personnage)
     afficher_personnage(personnage)
-    
+    print("Fin du chapitre 2 !")
+    print("Les cours à Poudlard commenceront dès demain.")
+    print("Prépare-toi pour une nouvelle aventure magique !")
+
 
 
 
