@@ -57,13 +57,13 @@ def mot_de_bienvenue() :
 def ceremonie_repartition(joueur) :
     print("La cérémonie de répartition commence dans la Grande Salle...")
     print("Le Choixpeau magique t’observe longuement avant de poser ses questions :")
-    maison_gagnante = repartition_maison(joueur, question)
+    maison_gagnante = repartition_maison(joueur, questions)
     joueur["Maison"] = maison_gagnante
     print("Le Choixpeau s’exclame :", maison_gagnante, "!!!")
     print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
 
 def installation_salle_commune(joueur) :
-    maison = charger_fichier("data/maisons.json")
+    maison = load_fichier("data/maisons.json")
     print("Vous suivez les préfets à travers les couloirs du château...")
     for cle1, valeur1 in maison.items() :
         if cle1 == joueur["maison"] :
@@ -75,12 +75,13 @@ def installation_salle_commune(joueur) :
                 joueur["Attributs"][cle2] += valeur2
 
 def lancer_chapitre_2(personnage) :
-    rencontrer_amis(joueur)
+    rencontrer_amis(personnage)
     mot_de_bienvenue()
-    ceremonie_repartition(joueur)
-    installation_salle_commune(joueur)
-    afficher_personnage(joueur)
+    ceremonie_repartition(personnage)
+    installation_salle_commune(personnage)
+    afficher_personnage(personnage)
     
+
 
 
 
