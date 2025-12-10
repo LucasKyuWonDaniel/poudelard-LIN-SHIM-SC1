@@ -45,6 +45,13 @@ def rencontrer_amis(joueur) :
     print("Tes choix semblent déjà en dire long sur ta personnalité !")
     print("Tes attributs mis à jour :", joueur["Attributs"])
 
+def mot_de_bienvenue():
+    print("Bienvenue à Poudlard, jeune sorcier !")
+    print("Je suis le professeur Dumbledore, et je suis ravi", end = " ")
+    print("de t’accueillir pour cette nouvelle aventure magique.")
+    print("Prépare-toi à faire des choix importants...")
+    input("\n(Appuie sur Entrée pour continuer...) ")
+
 
 
 
