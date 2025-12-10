@@ -60,6 +60,8 @@ def ceremonie_repartition(joueur) :
     print("Le Choixpeau s’exclame :", maison_gagnante, "!!!")
     print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
 
+def installation_salle_commune(joueur) :
+    print("Vous suivez les préfets à travers les couloirs du château...")
 
 
 
