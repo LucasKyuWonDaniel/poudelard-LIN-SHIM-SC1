@@ -50,6 +50,7 @@ j1 = {
     }
     }
 
+print(apprendre_sorts(j1))
 
 
 def quiz_magie():
