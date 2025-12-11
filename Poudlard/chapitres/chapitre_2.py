@@ -45,6 +45,7 @@ def rencontrer_amis(joueur) :
     print("Tes attributs mis à jour :", joueur["Attributs"])
 
 def mot_de_bienvenue() :
+    print("")
     print("Bienvenue à Poudlard, jeune sorcier !")
     print("Je suis le professeur Dumbledore, et je suis ravi", end = " ")
     print("de t’accueillir pour cette nouvelle aventure magique.")
@@ -96,6 +97,7 @@ j1 = {
 
 
 lancer_chapitre_2(j1)
+
 
 
 
