@@ -77,6 +77,7 @@ def lancer_chapitre_2(personnage) :
     mot_de_bienvenue()
     ceremonie_repartition(personnage)
     installation_salle_commune(personnage)
+    input("\n(Appuie sur Entrée pour continuer...) ")
     afficher_personnage(personnage)
     print("Fin du chapitre 2 !")
     print("Les cours à Poudlard commenceront dès demain.")
@@ -97,6 +98,7 @@ j1 = {
 
 
 lancer_chapitre_2(j1)
+
 
 
 
