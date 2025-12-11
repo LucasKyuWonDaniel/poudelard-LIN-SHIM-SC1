@@ -31,10 +31,10 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     for i in range(5) :
         for i in range(24) :
                  if sorts[i]["nom"] == joueur["Sortilèges"][i] :
-                     type = sorts[i]["type"]),
+                     type = sorts[i]["type"]
         for i in range(24) :
                  if sorts[i]["nom"] == joueur["Sortilèges"][i] :
-                     description = sorts[i]["description"]))
+                     description = sorts[i]["description"]
         print("- {} ({}) : {}".format(joueur["Sortilèges"][i], type, description))
 
 j1 = {
