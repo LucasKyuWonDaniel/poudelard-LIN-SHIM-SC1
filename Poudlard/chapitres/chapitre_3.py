@@ -29,13 +29,13 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("Tu as terminé ton apprentissage de base à Poudlard !")
     print("Voici les sortilèges que tu maîtrises désormais :")
     for i in range(5) :
-        print("- {} ({}) : {}".format(joueur["Sortilèges"][i], 
-             for i in range(24) :
+        for i in range(24) :
                  if sorts[i]["nom"] == joueur["Sortilèges"][i] :
-                     sorts[i]["type"]),
-            for i in range(24) :
+                     type = sorts[i]["type"]),
+        for i in range(24) :
                  if sorts[i]["nom"] == joueur["Sortilèges"][i] :
-                     sorts[i]["description"]))
+                     description = sorts[i]["description"]))
+        print("- {} ({}) : {}".format(joueur["Sortilèges"][i], type, description))
 
 j1 = {
     "Nom" : "SHIM" ,
