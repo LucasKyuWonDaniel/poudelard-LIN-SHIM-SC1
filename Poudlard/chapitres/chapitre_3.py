@@ -1,17 +1,41 @@
 from random import *
-from Poudlard.utils.input_utils import charger_fichier
+from Poudlard.utils.input_utils import *
 
-def apprendre_sorts(joueur, chemin_fichier="Poudlard.data.sorts.jason"):
-    charger_fichier()
+def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
+    print("Tu commences tes cours de magie à Poudlard...")
+    sorts = load_fichier(chemin_fichier)
     sortileges=[]
     offensif = 0
     defensif = 0
     utilitaire = 0
-    while offensif == 1 and defensif == 1 and utilitaire == 3:
-        for i in range(5):
-            sort = randint(1, 24)
-            sortileges.append(sort)
-
+    while offensif != 1 and defensif != 1 and utilitaire != 3:
+        sort = randint(0, 24)
+        if sorts[sort]["type"] == "Offenssif" and offensif == 0 :
+            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            sortileges.append(sorts[sort]["nom"])
+            offensif += 1
+            input("Appuie sur Entrée pour continuer...")
+        elif sorts[sort]["type"] == "Défensif" and defensif == 0 :
+            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            sortileges.append(sorts[sort]["nom"])
+            defensif += 1
+            input("Appuie sur Entrée pour continuer...")
+        elif sorts[sort]["type"] == "Unilitaire" and utilitaire != 3 :
+            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            sortileges.append(sorts[sort]["nom"])
+            utilitaire += 1
+            input("Appuie sur Entrée pour continuer...")
+    print("")
+    print("Tu as terminé ton apprentissage de base à Poudlard !")
+    print("Voici les sortilèges que tu maîtrises désormais :")
+    for i in range(5) :
+        print("- {} ({}) : {}".format(joueur["Sortilèges"][i], 
+             for i in range(24) :
+                 if sorts[i]["nom"] == joueur["Sortilèges"][i] :
+                     sorts[i]["type"]),
+            for i in range(24) :
+                 if sorts[i]["nom"] == joueur["Sortilèges"][i] :
+                     sorts[i]["description"]))
 
 def quiz_magie():
     return
