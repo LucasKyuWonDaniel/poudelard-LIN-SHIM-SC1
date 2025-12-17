@@ -37,6 +37,11 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
                      description = sorts[i]["description"]
         print("- {} ({}) : {}".format(joueur["Sortilèges"][i], type, description))
 
+
+def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
+    print("Bienvenue au quiz de magie de Poudlard !")
+    print("Réponds correctement aux 4 questions pour faire gagner des points à ta maison.")
+
 j1 = {
     "Nom" : "SHIM" ,
     "Prenom" : "Daniel" ,
@@ -49,10 +54,4 @@ j1 = {
     "ambition" : 4
     }
     }
-
-
-
-def quiz_magie():
-    return
-
 
