@@ -71,7 +71,7 @@ def lancer_chapitre_3(personnage, maisons) :
         score = quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json")
         actualiser_points_maison(points_maisons,joueur["Maison"], score)
         afficher_maison_gagnante(points_maisons)
-        afficher_joueur(joueur)
+        afficher_personnage(joueur)
 
 
 
