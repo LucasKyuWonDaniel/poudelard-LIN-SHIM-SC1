@@ -1,7 +1,12 @@
 from random import *
 from Poudlard.utils.input_utils import *
 
-
+points_maisons = {
+        "Gryffondor": 0,
+        "Serpentard": 0,
+        "Poufsouffle": 0,
+        "Serdaigle": 0
+}
 
 def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("Tu commences tes cours de magie à Poudlard...")
