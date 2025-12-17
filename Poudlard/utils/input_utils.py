@@ -3,14 +3,14 @@ import json
 
 def demander_texte(phrase):
     while True:
-        reponse = input(phrase).strip()
+        reponse = input(phrase)
         if len(reponse) > 0:
             return reponse
 
 
 def demander_nombre(phrase, minval=None, maxval=None):
     while True:
-        saisie = input(phrase).strip()
+        saisie = input(phrase)
         est_bon_nombre = True
         for caractere in saisie:
             if caractere not in "0123456789":
@@ -21,7 +21,7 @@ def demander_nombre(phrase, minval=None, maxval=None):
             for caractere in saisie:
                 nombre = nombre * 10 + (ord(caractere) - ord('0'))
 
-            # Test bornes
+
             if minval is None or nombre >= minval:
                 if maxval is None or nombre <= maxval:
                     return nombre
