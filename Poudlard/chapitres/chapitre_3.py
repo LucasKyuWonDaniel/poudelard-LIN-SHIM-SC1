@@ -1,6 +1,8 @@
 from random import *
 from Poudlard.utils.input_utils import *
 
+
+
 def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("Tu commences tes cours de magie à Poudlard...")
     sorts = load_fichier(chemin_fichier)
