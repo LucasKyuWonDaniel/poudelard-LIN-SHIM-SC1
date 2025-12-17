@@ -42,11 +42,21 @@ def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
     print("Bienvenue au quiz de magie de Poudlard !")
     print("Réponds correctement aux 4 questions pour faire gagner des points à ta maison.")
     L_quiz = load_fichier(chemin_fichier)
-    
+    score = 0
+    quiz_pose = []
     for i in range(1, 5) :
-        quiz = randint(0, 50)
-        print("{}.{}".format(i, L_quiz[quiz]))
-        reponse = str(input(
+        quiz = choice(L_quiz)
+        while quiz in quiz_pose :
+            quiz = choice(L_quiz)
+        reponse = demander_phrase("{}.{}".format(i, quiz["question"]))
+        print(">", reponse)
+        if reponse == quiz["reponse"] :
+            print("Bonne réponse ! +25 points pour ta maison.")
+            score += 25
+        else :
+            print("Mauvaise réponse. La bonne réponse était :", quiz["reponse"])
+        quiz_pose.append(quiz)
+    print("Score obtenu :", score, "points")
 
 j1 = {
     "Nom" : "SHIM" ,
