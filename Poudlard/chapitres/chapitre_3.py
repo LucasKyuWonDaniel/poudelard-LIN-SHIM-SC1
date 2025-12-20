@@ -17,9 +17,11 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     offensif = 0
     defensif = 0
     utilitaire = 0
-    while offensif != 1 and defensif != 1 and utilitaire != 3:
-        sort = randint(0, 24)
-        if sorts[sort]["type"] == "Offenssif" and offensif != 1 :
+    while offensif != 1 or defensif != 1 or utilitaire != 3:
+        sort = randint(0, 23)
+        while sorts[sort]["nom"] in sortileges :
+            sort = randint(0, 23)
+        if sorts[sort]["type"] == "Offensif" and offensif != 1 :
             print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
             sortileges.append(sorts[sort]["nom"])
             offensif += 1
@@ -29,7 +31,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
             sortileges.append(sorts[sort]["nom"])
             defensif += 1
             input("Appuie sur Entrée pour continuer...")
-        elif sorts[sort]["type"] == "Unilitaire" and utilitaire != 3 :
+        elif sorts[sort]["type"] == "Utilitaire" and utilitaire != 3 :
             print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
             sortileges.append(sorts[sort]["nom"])
             utilitaire += 1
