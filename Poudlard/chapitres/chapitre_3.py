@@ -39,14 +39,15 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("")
     print("Tu as terminé ton apprentissage de base à Poudlard !")
     print("Voici les sortilèges que tu maîtrises désormais :")
-    for i in range(5) :
+    joueur["Sortilèges"] = sortileges
+    for i in sortileges :
         for j in range(24) :
-            if sorts[j]["nom"] == joueur["Sortilèges"][i] :
+            if sorts[j]["nom"] == i :
                 type = sorts[j]["type"]
         for l in range(24) :
-           if sorts[l]["nom"] == joueur["Sortilèges"][i] :
+           if sorts[l]["nom"] == i :
                 description = sorts[l]["description"]
-        print("- {} ({}) : {}".format(joueur["Sortilèges"][i], type, description))
+        print("- {} ({}) : {}".format(i, type, description))
 
 
 
