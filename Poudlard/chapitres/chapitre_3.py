@@ -92,7 +92,8 @@ j1 = {
     "intelligence" : 8 ,
     "loyauté" : 6 ,
     "ambition" : 4
-    }
+    },
+    "Maison" : "Serpentard"
     }
 
 lancer_chapitre_3(j1)
