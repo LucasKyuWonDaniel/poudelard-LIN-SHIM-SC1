@@ -17,10 +17,10 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
 
         for i in range(len(equipe_data)) :
             if i != place :
-                if 
+                joueur = equipe_data[i].split(" ")
+                if joueur[2] == (Attrapeur) :
+                    equipe_data[i] = joueur[0] + joueur[1] + role
                 L_joueur.append(equipe_data[i])
-                
-            if joueur[0] != joueur["Prenom"] or joueur[1] != joueur["Nom"] :
-                L_joueur.append(i)
         equipe["joueurs"] = L_joueurs
     return equipe
+
