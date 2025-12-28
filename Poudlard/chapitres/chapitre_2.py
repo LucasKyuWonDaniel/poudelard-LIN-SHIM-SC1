@@ -62,7 +62,8 @@ def ceremonie_repartition(joueur) :
     print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
 
 def installation_salle_commune(joueur) :
-    maison = load_fichier("../data/maisons.json")
+    chemin_fichier = "../data/maisons.json"
+    maison = load_fichier(chemin_fichier)
     print("Vous suivez les préfets à travers les couloirs du château...")
     for cle1, valeur1 in maison.items() :
         if cle1 == joueur["Maison"] :
@@ -83,6 +84,7 @@ def lancer_chapitre_2(personnage) :
     print("Fin du chapitre 2 !")
     print("Les cours à Poudlard commenceront dès demain.")
     print("Prépare-toi pour une nouvelle aventure magique !")
+
 
 
 
