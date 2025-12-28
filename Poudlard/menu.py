@@ -3,7 +3,6 @@ from Poudlard.chapitres.chapitre_2 import *
 from Poudlard.chapitres.chapitre_3 import *
 from Poudlard.utils.input_utils import *
 
-
 def afficher_menu_principal():
     reponse = demander_choix("Que voulez-vous faire ?", ["Lancez le chapitre 1 - L'arrive dans le monde magique", "Quitter le jeu"])
     if reponse == 1:
