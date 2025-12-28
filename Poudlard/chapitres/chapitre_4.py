@@ -1,3 +1,5 @@
+from random import *
+
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
     equipe = { 
         'nom': maison, 
@@ -24,3 +26,26 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
         equipe["joueurs"] = L_joueurs
     return equipe
 
+def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False) :
+    proba_but = randint(1, 10)
+    if proba_but >= 6 :
+        if  joueur_est_joueur=True :
+            print(equipe_attaque["joueurs"][0], "marque un but pour", equipe_attaque["nom"])
+
+
+
+
+
+
+
+
+
+
+
+
+
+def apparition_vifdor() :
+    if randint(1, 6) == 6 :
+        return True
+    else :
+        return False
