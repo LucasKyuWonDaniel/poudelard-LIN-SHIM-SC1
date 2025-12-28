@@ -29,23 +29,19 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
 def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False) :
     proba_but = randint(1, 10)
     if proba_but >= 6 :
+        equipe_attaque["score"] += 10
+        equipe_attaque["a_marque"] += 1
         if  joueur_est_joueur=True :
-            print(equipe_attaque["joueurs"][0], "marque un but pour", equipe_attaque["nom"])
-
-
-
-
-
-
-
-
-
-
-
-
+            print("{} marque un but pour {}!(+10 points)".format(equipe_attaque["joueurs"][0], equipe_attaque["nom"]))
+        else :
+            print("{} marque un but pour {}!(+10 points)".format(equipe_attaque["joueurs"][randint(1, 6)], equipe_attaque["nom"]))
+    else :
+        equipe_attaque["a_stoppe"] += 1
+        print("{} bloque l’attaque!".format(equipe_defense["nom"]))
 
 def apparition_vifdor() :
     if randint(1, 6) == 6 :
         return True
     else :
         return False
+
