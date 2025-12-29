@@ -104,8 +104,6 @@ def match_quidditch(joueur, maisons):
         joueur["Attributs"]["courage"] -= 2
     print("=" * 50)
 
-
-
 def lancer_chapitre4_quidditch(joueur, maisons):
     print("\n" + "=" * 60)
     print(" CHAPITRE 4 - L'ÉPREUVE DE QUIDDITCH ")
@@ -113,20 +111,9 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour commencer le match...) ")
     match_quidditch(joueur, maisons)
     print("\n Fin du Chapitre 4 - Quelle épreuve palpitante !")
-    afficher_maison_gagnante()
-    print("Votre maison remporte la Coupe des Quatre Maisons grâce à vos exploits !")
+    maison_gagnante = afficher_maison_gagnante(maisons)
+    print(maison_gagnante, "remporte la Coupe des Quatre Maisons!")
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
-
-
-
-
-
-
-
-
-
-
-
 
