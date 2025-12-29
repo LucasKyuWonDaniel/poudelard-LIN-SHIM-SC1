@@ -63,14 +63,12 @@ def afficher_equipe_maison(equipe):
         joueur = i.split(" ")
         print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
 
-
-
-#chatgpt#chatgpt#chatgpt#chatgpt#chatgpt#chatgpt
-#chatgpt#chatgpt#chatgpt#chatgpt#chatgpt#chatgpt
 def match_quidditch(joueur, maisons):
-    equipe_joueur = creer_equipe(maisons, joueur["Maison"], est_joueur=True, joueur=joueur)
-    maison_adverse = random.choice([m for m in maisons if m != joueur["Maison"]])
-    equipe_adverse = creer_equipe(maisons, maison_adverse, est_joueur=False)
+    equipe_joueur = creer_equipe(joueur["Maison"], g, est_joueur=True, joueur=joueur)
+    maison_adverse = random.choice(joueur["Maison"])
+    while maison_adverse == equipe_joueur :
+        maison_adverse = random.choice(joueur["Maison"])
+    equipe_adverse = creer_equipe(maison_adverse, h, est_joueur=False)
     print("MATCH DE QUIDDITCH !")
     afficher_equipe_maison(equipe_joueur)
     print()
@@ -113,6 +111,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
