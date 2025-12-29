@@ -66,11 +66,11 @@ def afficher_equipe_maison(equipe):
 
 def match_quidditch(joueur, maisons):
     equipes = load_fichier(../data/equipes_quidditch.json)
-    equipe_joueur = creer_equipe(joueur["Maison"], equipes[joueur["Maison"]["equipes"]], est_joueur=True, joueur=joueur)
+    equipe_joueur = creer_equipe(joueur["Maison"], equipes[joueur["Maison"]["joueurs"]], est_joueur=True, joueur=joueur)
     maison_adverse = random.choice(joueur["Maison"])
     while maison_adverse == equipe_joueur :
         maison_adverse = random.choice(joueur["Maison"])
-    equipe_adverse = creer_equipe(maison_adverse, h, est_joueur=False)
+    equipe_adverse = creer_equipe(maison_adverse, equipes[maison_adverse["joueurs"]], est_joueur=False)
     print("MATCH DE QUIDDITCH !")
     afficher_equipe_maison(equipe_joueur)
     print()
@@ -113,6 +113,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
