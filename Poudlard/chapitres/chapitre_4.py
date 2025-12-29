@@ -59,8 +59,9 @@ def afficher_score(e1, e2):
 
 def afficher_equipe_maison(equipe):
     print(f"Équipe de {equipe['nom']} :")
-    for joueur in equipe['joueurs']:
-        print(f"- {joueur['nom']} ({joueur['role']})")
+    for i in equipe['joueurs'] :
+        joueur = i.split(" ")
+        print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
 
 
 
@@ -112,6 +113,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
