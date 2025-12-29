@@ -10,7 +10,7 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
         'attrape_vifdor': False, 
         'joueurs': equipe_data ,
         }
-    if est_joueur == True and joueur != None:
+    if est_joueur and joueur != None:
         L_joueurs = [joueur["Prenom"] + joueur["Nom"] + "(Attrapeur)"]
         for i in range(len(equipe_data)) :
             joueur = equipe_data[i].split(" ")
@@ -117,5 +117,6 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
