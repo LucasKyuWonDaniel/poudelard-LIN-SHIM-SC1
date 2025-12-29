@@ -1,5 +1,6 @@
 from random import *
 from Poudlard.univers.personnages import afficher_personnage
+from 
 
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
     equipe = { 
@@ -64,6 +65,7 @@ def afficher_equipe_maison(equipe):
         print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
 
 def match_quidditch(joueur, maisons):
+    equipes = load_fichier()
     equipe_joueur = creer_equipe(joueur["Maison"], g, est_joueur=True, joueur=joueur)
     maison_adverse = random.choice(joueur["Maison"])
     while maison_adverse == equipe_joueur :
@@ -111,6 +113,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
