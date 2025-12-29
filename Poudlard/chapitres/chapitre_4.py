@@ -1,6 +1,7 @@
 from random import *
 from Poudlard.univers.personnages import afficher_personnage
 from Poudlard.utils.input_utils import *
+from Poudlard.univers.Maisons import *
 
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
     equipe = { 
@@ -71,21 +72,24 @@ def match_quidditch(joueur, maisons):
     while maison_adverse == equipe_joueur :
         maison_adverse = random.choice(joueur["Maison"])
     equipe_adverse = creer_equipe(maison_adverse, equipes[maison_adverse["joueurs"]], est_joueur=False)
-    print("MATCH DE QUIDDITCH !")
+    print("Match de Quidditch : {} vs {} !".format(joueur["Maison"], maison_adverse))
+    print()
     afficher_equipe_maison(equipe_joueur)
     print()
     afficher_equipe_maison(equipe_adverse)
     print()
+    print("Tu joues pour", joueur["Maison"],"en tant qu’Attrapeur")
     for tour in range(20):
-        afficher_score(equipe_joueur, equipe_adverse)
+        print("━━━ Tour", tour, "━━━")
+        tentative_marque(equipe_joueur, equipe_adverse, joueur_est_joueur=True)
+        tentative_marque(equipe_adverse, equipe_joueur, joueur_est_joueur=False)
         print()
-        if tour % 2 == 0:
-            tentative_marque(equipe_joueur, equipe_adverse, joueur_est_joueur=True)
-        else:
-            tentative_marque(equipe_adverse, equipe_joueur, joueur_est_joueur=False)
+        afficher_score(equipe_joueur, equipe_adverse)
+        input("Appuyez sur Entrée pour continuer")
         if apparition_vifdor():
             print("\n*** LE VIF D'OR APPARAÎT ! ***")
-            attraper_vifdor(equipe_joueur, equipe_adverse)
+            equipe_gagnante = attraper_vifdor(equipe_joueur, equipe_adverse)
+            print("Le Vif d’Or a été attrapé par", equipe_gagnante["nom"], "! (+150 points)")
             break
     print("\n" + "=" * 50)
     print("FIN DU MATCH !")
@@ -113,6 +117,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
