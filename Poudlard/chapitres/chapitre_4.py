@@ -13,17 +13,16 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
     if est_joueur and joueur != None:
         L_joueurs = [joueur["Prenom"] + joueur["Nom"] + "(Attrapeur)"]
         for i in range(len(equipe_data)) :
-            joueur = equipe_data[i].split(" ")
-            if joueur[0] == joueur["Prenom"] and joueur[1] == joueur["Nom"] :
-                role = joueur[2]
+            joueurs = equipe_data[i].split(" ")
+            if joueurs[0] == joueur["Prenom"] and joueurs[1] == joueur["Nom"] :
+                role = joueurs[2]
                 place = i
-
         for i in range(len(equipe_data)) :
             if i != place :
-                L_joueurs.append(equipe_data[i])
-                
-            if joueur[0] != joueur["Prenom"] or joueur[1] != joueur["Nom"] :
-                L_joueurs.append(i)
+                joueurs = equipe_data[i].split(" ")
+                if joueurs[2] == "(Attrapeur)" :
+                    joueurs[2] = role
+                L_joueurs.append(joueurs[0] + joueurs[1] + joueurs[2])
         equipe["joueurs"] = L_joueurs
     return equipe
 
@@ -33,15 +32,11 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
     tir_reussi = proba_but >= 6
     if tir_reussi:
         if joueur_est_joueur:
-            buteur = equipe_attaque["joueurs"][0]
+            print(f"{equipe_attaque["joueurs"][0]} marque un but pour {equipe_attaque["nom"]} ! (+10 points)")
         else:
-            buteur = random.choice(equipe_attaque["joueurs"])
-        nom_buteur = buteur["nom"]
-        role_buteur = buteur["role"]
-        nom_equipe = equipe_attaque["nom"]
+            print(f"{equipe_attaque["joueurs"][randint(1, 6)]} marque un but pour {equipe_attaque["nom"]} ! (+10 points)")
         equipe_attaque["score"] += 10
         equipe_attaque["a_marque"] += 1
-        print(f"{nom_buteur} ({role_buteur}) marque un but pour {nom_equipe} ! (+10 points)")
     else:
         equipe_defense["a_stoppe"] += 1
         print(f"{equipe_defense['nom']} bloque l'attaque !")
@@ -117,6 +112,7 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+
 
 
 
