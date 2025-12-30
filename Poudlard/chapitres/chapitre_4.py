@@ -66,7 +66,7 @@ def afficher_equipe_maison(equipe):
         print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
 
 def match_quidditch(joueur, maisons):
-    equipes = load_fichier(../data/equipes_quidditch.json)
+    equipes = load_fichier("../data/equipes_quidditch.json")
     equipe_joueur = creer_equipe(joueur["Maison"], equipes[joueur["Maison"]["joueurs"]], est_joueur=True, joueur=joueur)
     maison_adverse = random.choice(joueur["Maison"])
     while maison_adverse == equipe_joueur :

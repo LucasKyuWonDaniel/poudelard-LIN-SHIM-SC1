@@ -12,7 +12,7 @@ points_maisons = {
 
 def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("Tu commences tes cours de magie à Poudlard...")
-    sorts = load_fichier(chemin_fichier)
+    sorts = SORTS_DATA
     sortileges=[]
     offensif = 0
     defensif = 0
@@ -55,7 +55,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
 def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
     print("Bienvenue au quiz de magie de Poudlard !")
     print("Réponds correctement aux 4 questions pour faire gagner des points à ta maison.")
-    L_quiz = load_fichier(chemin_fichier)
+    L_quiz = QUIZ_DATA
     quiz_pose = []
     score = 0
     for i in range(1, 5) :

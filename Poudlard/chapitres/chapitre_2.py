@@ -3,6 +3,7 @@ from Poudlard.univers.Maisons import *
 from Poudlard.univers.personnages import *
 from Poudlard.chapitres.chapitre_1 import *
 
+
 def rencontrer_amis(joueur) :
     print("Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord... ")
     print("Un garçon roux entre dans votre compartiment, l’air amical.")
@@ -60,18 +61,22 @@ def ceremonie_repartition(joueur) :
     joueur["Maison"] = maison_gagnante
     print("Le Choixpeau s’exclame :", maison_gagnante, "!!!")
     print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
+    return joueur
 
-def installation_salle_commune(joueur) :
-    maison = load_fichier("../data/maisons.json")
+def installation_salle_commune(joueur):
+    maison = Maisons_data
     print("Vous suivez les préfets à travers les couloirs du château...")
-    for cle1, valeur1 in maison.items() :
-        if cle1 == joueur["Maison"] :
+    for cle1, valeur1 in maison.items():
+        if cle1 == joueur["Maison"]:
             print(valeur1["emoji"], valeur1["description"])
             print(valeur1["message_installation"])
-            print("Les couleurs de votre maison : {}, {}".format(valeur1["couleurs"][0], valeur1["couleurs"][1]))
+            print("Les couleurs de votre maison : {}, {}".format(
+                valeur1["couleurs"][0], valeur1["couleurs"][1]))
             joueur["Traits"] = valeur1["traits"]
-            for cle2, valeur2 in valeur1["bonus_attributs"].items() :
+            for cle2, valeur2 in valeur1["bonus_attributs"].items():
                 joueur["Attributs"][cle2] += valeur2
+            break
+
 
 def lancer_chapitre_2(personnage) :
     rencontrer_amis(personnage)
@@ -83,14 +88,6 @@ def lancer_chapitre_2(personnage) :
     print("Fin du chapitre 2 !")
     print("Les cours à Poudlard commenceront dès demain.")
     print("Prépare-toi pour une nouvelle aventure magique !")
-
-
-
-
-
-
-
-
 
 
 
