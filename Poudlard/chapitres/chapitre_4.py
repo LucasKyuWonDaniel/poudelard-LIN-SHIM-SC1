@@ -1,7 +1,8 @@
-from random import *
+from random import randint, random
 from Poudlard.univers.personnages import afficher_personnage
 from Poudlard.utils.input_utils import *
 from Poudlard.univers.Maisons import *
+from Poudlard.utils.input_utils import *
 
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
     equipe = { 
@@ -30,7 +31,7 @@ def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
 
 
 def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
-    proba_but = random.randint(1, 10)
+    proba_but = randint(1, 10)
     tir_reussi = proba_but >= 6
     if tir_reussi:
         if joueur_est_joueur:
@@ -44,7 +45,7 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
         print(f"{equipe_defense['nom']} bloque l'attaque !")
 
 def apparition_vifdor():
-    proba_vif = random.randint(1, 6)
+    proba_vif = randint(1, 6)
     return proba_vif == 6
 
 def attraper_vifdor(e1, e2):
@@ -66,7 +67,7 @@ def afficher_equipe_maison(equipe):
         print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
 
 def match_quidditch(joueur, maisons):
-    equipes = load_fichier("../data/equipes_quidditch.json")
+    equipes = Data_quidditch
     equipe_joueur = creer_equipe(joueur["Maison"], equipes[joueur["Maison"]["joueurs"]], est_joueur=True, joueur=joueur)
     maison_adverse = random.choice(joueur["Maison"])
     while maison_adverse == equipe_joueur :
@@ -105,9 +106,7 @@ def match_quidditch(joueur, maisons):
     print("=" * 50)
 
 def lancer_chapitre4_quidditch(joueur, maisons):
-    print("\n" + "=" * 60)
     print(" CHAPITRE 4 - L'ÉPREUVE DE QUIDDITCH ")
-    print("=" * 60)
     input("\n(Appuie sur Entrée pour commencer le match...) ")
     match_quidditch(joueur, maisons)
     print("\n Fin du Chapitre 4 - Quelle épreuve palpitante !")
@@ -116,4 +115,3 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
     print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
-

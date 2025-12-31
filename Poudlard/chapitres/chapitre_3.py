@@ -73,7 +73,7 @@ def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
     print("Score obtenu :", score, "points")
     return score
         
-def lancer_chapitre_3(personnage) :
+def lancer_chapitre_3(personnage, maisons) :
         apprendre_sorts(personnage, chemin_fichier="../data/sorts.json")
         score = quiz_magie(personnage, chemin_fichier="../data/quiz_magie.json")
         actualiser_points_maison(points_maisons,personnage["Maison"], score)

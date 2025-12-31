@@ -4,8 +4,7 @@ from Poudlard.utils.input_utils import *
 
 def introduction():
     print("Bienvenue joueur !")
-    input()
-    print("Vous vivez chez votre oncle Vernon, votre tante Pétunia et votre cousin Dudley, qui vous traitent mal depuis votre enfance, ")
+    print("\n Vous vivez chez votre oncle Vernon, votre tante Pétunia et votre cousin Dudley, qui vous traitent mal depuis votre enfance, ")
     print("car vous êtes orphelin après la mort mystérieuse de vos parents.")
     print("Le jour de vos 11 ans, vous recevez plusieurs lettres d'une école de sorcellerie appelée Poudlard, que votre famille essaie de vous cacher. ")
 
@@ -31,7 +30,7 @@ def creer_personnage():
 
 
 def recevoir_lettre():
-    print("Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard...")
+    print("\nUne chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard...")
     print("« Cher élève, Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! »")
     print("Souhaitez-vous accepter cette invitation et partir pour Poudlard ?")
     print("1. Oui, bien sûr !")
@@ -47,7 +46,7 @@ def recevoir_lettre():
 
 
 def rencontrer_Hagrid():
-    print("Hagrid : 'Salut Harry ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse.'")
+    print("\n Hagrid : 'Salut Harry ! Je suis venu t’aider à faire tes achats sur le Chemin de Traverse.'")
     reponse = demander_choix("Voulez-vous suivre Hagrid ?", ["oui","non"])
     if reponse == 1:
         print("Hagrid est ravi et vous emmène sur le Chemin de Traverse.")
@@ -58,7 +57,7 @@ def rencontrer_Hagrid():
 
 
 def acheter_fournitures(personnage):
-    print("Bienvenue sur le Chemin de Traverse !")
+    print("\n Bienvenue sur le Chemin de Traverse !")
     objets = ["Baguette magique", "Robe de sorcier", "Chaudron en étain",
               "Manuel de potions", "Plume magique", "Livre enchanté",
               "Balance de cuivre", "Cape d'invisibilité"]
