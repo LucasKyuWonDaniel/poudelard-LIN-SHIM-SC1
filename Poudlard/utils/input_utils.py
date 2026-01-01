@@ -43,6 +43,35 @@ def load_fichier(chemin_fichier):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Maisons_data = {
   "Gryffondor": {
     "emoji": "🔥",
