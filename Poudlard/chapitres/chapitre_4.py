@@ -96,11 +96,12 @@ def match_quidditch(joueur, maisons):
     if equipe_joueur["score"] > equipe_adverse["score"]:
         print("\n {} GAGNE LE MATCH !".format(equipe_joueur["nom"]))
         print("Félicitations ! Vous gagnez 500 points pour votre maison !")
-        
+        actualiser_points_maison(maisons, equipe_joueur["nom"], 500)
         joueur["Attributs"]["courage"] += 5
     else:
         print("\n {} GAGNE LE MATCH !".format(equipe_adverse["nom"]))
         print("Défi perdu... Votre maison perd 100 points.")
+        actualiser_points_maison(maisons, equipe_joueur["nom"], -100)
         joueur["Attributs"]["courage"] -= 2
 
 def lancer_chapitre4_quidditch(joueur, maisons):
@@ -114,4 +115,5 @@ def lancer_chapitre4_quidditch(joueur, maisons):
     afficher_personnage(joueur)
     print("Félicitations sorcier ! Vous avez terminé la partie principale du jeu.")
     exit()
+
 
