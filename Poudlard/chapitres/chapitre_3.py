@@ -77,6 +77,6 @@ def lancer_chapitre_3(personnage, maisons) :
         apprendre_sorts(personnage, chemin_fichier="../data/sorts.json")
         score = quiz_magie(personnage, chemin_fichier="../data/quiz_magie.json")
         actualiser_points_maison(points_maisons,personnage["Maison"], score)
-        print("La maison gagnante est :", afficher_maison_gagnante(points_maisons))
+        print("La maison actuellement en tête est :", afficher_maison_gagnante(points_maisons))
         afficher_personnage(personnage)
 
