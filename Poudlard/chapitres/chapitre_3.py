@@ -3,13 +3,6 @@ from Poudlard.utils.input_utils import *
 from Poudlard.univers.Maisons import  *
 from Poudlard.univers.personnages import  *
 
-points_maisons = {
-        "Gryffondor": 0,
-        "Serpentard": 0,
-        "Poufsouffle": 0,
-        "Serdaigle": 0
-}
-
 def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
     print("\n Tu commences tes cours de magie à Poudlard...")
     sorts = SORTS_DATA
@@ -76,7 +69,7 @@ def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
 def lancer_chapitre_3(personnage, maisons) :
         apprendre_sorts(personnage, chemin_fichier="../data/sorts.json")
         score = quiz_magie(personnage, chemin_fichier="../data/quiz_magie.json")
-        actualiser_points_maison(points_maisons,personnage["Maison"], score)
-        print("La maison actuellement en tête est :", afficher_maison_gagnante(points_maisons))
+        actualiser_points_maison(maisons,personnage["Maison"], score)
+        print("La maison actuellement en tête est :", afficher_maison_gagnante(maisons))
         afficher_personnage(personnage)
 
