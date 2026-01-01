@@ -5,11 +5,11 @@ from Poudlard.chapitres.chapitre_1 import *
 
 
 def rencontrer_amis(joueur) :
-    print("Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord... ")
+    print("\n Vous montez à bord du Poudlard Express. Le train démarre lentement en direction du Nord... ")
     print("Un garçon roux entre dans votre compartiment, l’air amical.")
     print("— Salut ! Moi c’est Ron Weasley. Tu veux bien qu’on s’assoie ensemble ? ")
     L_reponse1 = ["Bien sûr, assieds-toi !", "Désolé, je préfère voyager seul."]
-    reponse1 = demander_choix("Que répondez-vous ?", L_reponse1)
+    reponse1 = demander_choix("Que répondez-vous ? ", L_reponse1)
     if reponse1 == 1 :
         joueur["Attributs"]["loyauté"] += 1
         print("Ron sourit : — Génial ! Tu verras, Poudlard, c’est incroyable ! ")
@@ -17,8 +17,8 @@ def rencontrer_amis(joueur) :
         joueur["Attributs"]["ambition"] += 1
         print("Ron : — Pas de probleme, mon pote !")
     
-    print("Une fille entre ensuite, portant déjà une pile de livres.")
-    print("— Bonjour, je m’appelle Hermione Granger. Vous avez déjà lu ‘Histoire de la Magie’ ?")
+    print("\n  fille entre ensuite, portant déjà une pile de livres.")
+    print("— Bonjour, je m’appelle Hermione Granger. Vous avez déjà lu ‘Histoire de la Magie’ ? ")
     L_reponse2 = ["Oui, j’adore apprendre de nouvelles choses !", "Euh… non, je préfère les aventures aux bouquins."]
     reponse2 = demander_choix("Que répondez-vous ?", L_reponse2)
     if reponse2 == 1 :
@@ -29,10 +29,10 @@ def rencontrer_amis(joueur) :
         joueur["Attributs"]["courage"] += 1
         print("Hermione fronce les sourcils : — Il faudrait pourtant s’y mettre un jour ! ")
     
-    print("Puis un garçon blond entre avec un air arrogant.")
-    print("— Je suis Drago Malefoy. Mieux vaut bien choisir ses amis dès le départ, tu ne crois pas ?")
+    print("\n Puis un garçon blond entre avec un air arrogant.")
+    print("— Je suis Drago Malefoy. Mieux vaut bien choisir ses amis dès le départ, tu ne crois pas ? ")
     L_reponse3 = ["Je lui serre la main poliment.", "Je l’ignore complètement.", "Je lui réponds avec arrogance."]
-    reponse3 = demander_choix("Comment réagissez-vous ?", L_reponse3)
+    reponse3 = demander_choix("Comment réagissez-vous ? ", L_reponse3)
     if reponse3 == 1 :
         joueur["Attributs"]["ambition"] += 1
         print("Drago : — HaHaHa! ")
@@ -42,20 +42,20 @@ def rencontrer_amis(joueur) :
     else :
         joueur["Attributs"]["courage"] += 1
         print("Drago : — Qui te crois tu ! ")
-    print("Le train continue sa route. Le château de Poudlard se profile à l’horizon... ")
+    print("\n Le train continue sa route. Le château de Poudlard se profile à l’horizon... ")
     print("Tes choix semblent déjà en dire long sur ta personnalité !")
     print("Tes attributs mis à jour :", joueur["Attributs"])
 
 def mot_de_bienvenue() :
     print("")
-    print("Bienvenue à Poudlard, jeune sorcier !")
+    print("\n Bienvenue à Poudlard, jeune sorcier !")
     print("Je suis le professeur Dumbledore, et je suis ravi", end = " ")
     print("de t’accueillir pour cette nouvelle aventure magique.")
     print("Prépare-toi à faire des choix importants...")
     input("\n(Appuie sur Entrée pour continuer...) ")
 
 def ceremonie_repartition(joueur) :
-    print("La cérémonie de répartition commence dans la Grande Salle...")
+    print("\n La cérémonie de répartition commence dans la Grande Salle...")
     print("Le Choixpeau magique t’observe longuement avant de poser ses questions :")
     maison_gagnante = repartition_maison(joueur, questions)
     joueur["Maison"] = maison_gagnante
@@ -65,7 +65,7 @@ def ceremonie_repartition(joueur) :
 
 def installation_salle_commune(joueur):
     maison = Maisons_data
-    print("Vous suivez les préfets à travers les couloirs du château...")
+    print("\n Vous suivez les préfets à travers les couloirs du château...")
     for cle1, valeur1 in maison.items():
         if cle1 == joueur["Maison"]:
             print(valeur1["emoji"], valeur1["description"])
@@ -85,11 +85,9 @@ def lancer_chapitre_2(personnage) :
     installation_salle_commune(personnage)
     input("\n(Appuie sur Entrée pour continuer...) ")
     afficher_personnage(personnage)
-    print("Fin du chapitre 2 !")
+    print("\n Fin du chapitre 2 !")
     print("Les cours à Poudlard commenceront dès demain.")
     print("Prépare-toi pour une nouvelle aventure magique !")
-
-
 
 
 

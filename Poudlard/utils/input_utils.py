@@ -6,7 +6,6 @@ def demander_texte(phrase):
         if len(reponse) > 0:
             return reponse
 
-
 def demander_nombre(phrase, minval=None, maxval=None):
     while True:
         saisie = input(phrase)
@@ -22,9 +21,7 @@ def demander_nombre(phrase, minval=None, maxval=None):
             if minval is None or nombre >= minval:
                 if maxval is None or nombre <= maxval:
                     return nombre
-
         print("Erreur ! Entrez un nombre valide.")
-
 
 def demander_choix(phrase, choices):
     print(phrase)

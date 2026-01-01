@@ -11,7 +11,7 @@ points_maisons = {
 }
 
 def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
-    print("Tu commences tes cours de magie à Poudlard...")
+    print("\n Tu commences tes cours de magie à Poudlard...")
     sorts = SORTS_DATA
     sortileges=[]
     offensif = 0
@@ -22,17 +22,17 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
         while sorts[sort]["nom"] in sortileges :
             sort = randint(0, 23)
         if sorts[sort]["type"] == "Offensif" and offensif != 1 :
-            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            print("\n Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
             sortileges.append(sorts[sort]["nom"])
             offensif += 1
             input("Appuie sur Entrée pour continuer...")
         elif sorts[sort]["type"] == "Défensif" and defensif != 1 :
-            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            print("\n Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
             sortileges.append(sorts[sort]["nom"])
             defensif += 1
             input("Appuie sur Entrée pour continuer...")
         elif sorts[sort]["type"] == "Utilitaire" and utilitaire != 3 :
-            print("Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
+            print("\n Tu viens d'apprendre le sortilège : {} ({})".format(sorts[sort]["nom"], sorts[sort]["type"]))
             sortileges.append(sorts[sort]["nom"])
             utilitaire += 1
             input("Appuie sur Entrée pour continuer...")
@@ -53,7 +53,7 @@ def apprendre_sorts(joueur, chemin_fichier="../data/sorts.json"):
 
 
 def quiz_magie(joueur, chemin_fichier="../data/quiz_magie.json") :
-    print("Bienvenue au quiz de magie de Poudlard !")
+    print("\n Bienvenue au quiz de magie de Poudlard !")
     print("Réponds correctement aux 4 questions pour faire gagner des points à ta maison.")
     L_quiz = QUIZ_DATA
     quiz_pose = []
@@ -79,9 +79,4 @@ def lancer_chapitre_3(personnage, maisons) :
         actualiser_points_maison(points_maisons,personnage["Maison"], score)
         print("La maison gagnante est :", afficher_maison_gagnante(points_maisons))
         afficher_personnage(personnage)
-
-
-
-
-
 

@@ -7,7 +7,6 @@ def actualiser_points_maison(maisons, nom_maison, points):
     else:
         print("La maison est introuvable.")
 
-
 def afficher_maison_gagnante(maisons) :
     L_maison_gagnante = []
     max = maisons["Gryffondor"]
@@ -54,6 +53,25 @@ def repartition_maison(joueur, questions) :
     for cle, valeur in score_maisons.items() :
         print(cle, ":", valeur, "points")
     return afficher_maison_gagnante(score_maisons)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 questions = [
     (

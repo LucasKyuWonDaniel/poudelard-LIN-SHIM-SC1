@@ -35,14 +35,14 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
     tir_reussi = proba_but >= 6
     if tir_reussi:
         if joueur_est_joueur:
-            print(f"{equipe_attaque["joueurs"][0]} marque un but pour {equipe_attaque["nom"]} ! (+10 points)")
+            print("{} marque un but pour {} ! (+10 points)".format(equipe_attaque["joueurs"][0],equipe_attaque["nom"] ))
         else:
-            print(f"{equipe_attaque["joueurs"][randint(1, 6)]} marque un but pour {equipe_attaque["nom"]} ! (+10 points)")
+            print("{} marque un but pour {} ! (+10 points)".format(equipe_attaque["joueurs"][randint(1, 6)],equipe_attaque["nom"]))
         equipe_attaque["score"] += 10
         equipe_attaque["a_marque"] += 1
     else:
         equipe_defense["a_stoppe"] += 1
-        print(f"{equipe_defense['nom']} bloque l'attaque !")
+        print("{} bloque l'attaque !".format(equipe_defense["nom"]))
 
 def apparition_vifdor():
     proba_vif = randint(1, 6)
@@ -52,19 +52,19 @@ def attraper_vifdor(e1, e2):
     equipe_victorieuse = random.choice([e1, e2])
     equipe_victorieuse["score"] += 150
     equipe_victorieuse["attrape_vifdor"] = True
-    print(f"{equipe_victorieuse['nom']} attrape le Vif d'Or ! (+150 points)")
+    print("{} attrape le Vif d'Or ! (+150 points)".format(equipe_victorieuse["nom"]))
     return equipe_victorieuse
 
 def afficher_score(e1, e2):
     print("Score actuel :")
-    print(f"- {e1['nom']} : {e1['score']} points")
-    print(f"- {e2['nom']} : {e2['score']} points")
+    print("- {} : {} points".format(e1["nom"], e1["score"]))
+    print("- {} : {} points".format(e2["nom"], e2["score"]))
 
 def afficher_equipe_maison(equipe):
-    print(f"Équipe de {equipe['nom']} :")
+    print("Équipe de {} :".format(equipe["nom"]))
     for i in equipe['joueurs'] :
         joueur = i.split(" ")
-        print(f"- {joueur[0]} {joueur[1]} ({joueur[2]})")
+        print("- {} {} ({})".format(joueur[0], joueur[1], joueur[2]))
 
 def match_quidditch(joueur, maisons):
     equipes = Data_quidditch
@@ -81,18 +81,17 @@ def match_quidditch(joueur, maisons):
     print()
     print("Tu joues pour", joueur["Maison"],"en tant qu’Attrapeur")
     for tour in range(20):
-        print("━━━ Tour", tour, "━━━")
+        print("Tour", tour)
         tentative_marque(equipe_joueur, equipe_adverse, joueur_est_joueur=True)
         tentative_marque(equipe_adverse, equipe_joueur, joueur_est_joueur=False)
         print()
         afficher_score(equipe_joueur, equipe_adverse)
         input("Appuyez sur Entrée pour continuer")
         if apparition_vifdor():
-            print("\n*** LE VIF D'OR APPARAÎT ! ***")
+            print("\n LE VIF D'OR APPARAÎT !")
             equipe_gagnante = attraper_vifdor(equipe_joueur, equipe_adverse)
             print("Le Vif d’Or a été attrapé par", equipe_gagnante["nom"], "! (+150 points)")
             break
-    print("\n" + "=" * 50)
     print("FIN DU MATCH !")
     afficher_score(equipe_joueur, equipe_adverse)
     if equipe_joueur["score"] > equipe_adverse["score"]:
@@ -100,18 +99,18 @@ def match_quidditch(joueur, maisons):
         print("Félicitations ! Vous gagnez 500 points pour votre maison !")
         joueur["Attributs"]["courage"] += 5
     else:
-        print(f"\n {equipe_adverse['nom']} GAGNE LE MATCH !")
+        print("\n {} GAGNE LE MATCH !".format(equipe_joueur["nom"]))
         print("Défi perdu... Votre maison perd 100 points.")
         joueur["Attributs"]["courage"] -= 2
-    print("=" * 50)
 
 def lancer_chapitre4_quidditch(joueur, maisons):
     print(" CHAPITRE 4 - L'ÉPREUVE DE QUIDDITCH ")
-    input("\n(Appuie sur Entrée pour commencer le match...) ")
+    input("(Appuie sur Entrée pour commencer le match...) ")
     match_quidditch(joueur, maisons)
     print("\n Fin du Chapitre 4 - Quelle épreuve palpitante !")
     maison_gagnante = afficher_maison_gagnante(maisons)
     print(maison_gagnante, "remporte la Coupe des Quatre Maisons!")
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
-    print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+    print("Félicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+    exit()

@@ -17,7 +17,6 @@ def creer_personnage():
     intelligence = demander_nombre("Niveau d'intelligence (1-10) : ", 1, 10)
     loyaute = demander_nombre("Niveau de loyauté (1-10) : ", 1, 10)
     ambition = demander_nombre("Niveau d'ambition (1-10) : ", 1, 10)
-
     attributs = {
         "courage": courage,
         "intelligence": intelligence,
@@ -30,16 +29,16 @@ def creer_personnage():
 
 
 def recevoir_lettre():
-    print("\nUne chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard...")
+    print("\n Une chouette traverse la fenêtre et vous apporte une lettre scellée du sceau de Poudlard...")
     print("« Cher élève, Nous avons le plaisir de vous informer que vous avez été admis à l’école de sorcellerie de Poudlard ! »")
     print("Souhaitez-vous accepter cette invitation et partir pour Poudlard ?")
     print("1. Oui, bien sûr !")
     print("2. Non, je préfère rester avec l’oncle Vernon...")
     choix = demander_nombre("Votre choix : ", 1, 2)
     if choix == 1:
-        print("Vous acceptez de partir pour Poudlard. L’aventure continue !")
+        print("\n Vous acceptez de partir pour Poudlard. L’aventure continue !")
     else:
-        print("Vous refusez d'aller à Poudlard.")
+        print("\n Vous refusez d'aller à Poudlard.")
         print("Hagrid n'est pas satisfait de votre reponse et vous jette un sort ")
         print("Vous êtes morts")
         exit()
@@ -63,8 +62,6 @@ def acheter_fournitures(personnage):
               "Balance de cuivre", "Cape d'invisibilité"]
     prix =   [35,20,15,25,5,30,10,100]
     objets_obligatoires = ["Baguette magique", "Robe de sorcier", "Manuel de potions"]
-
-
     while len(objets_obligatoires) > 0:
         print("\n Catalogue des objets disponibles :")
         for i in range(len(objets)):
@@ -80,10 +77,8 @@ def acheter_fournitures(personnage):
         personnage["Argent"] -= cout
         personnage["Inventaire"].append(objets[choix_objet-1])
         print("Vous avez acheté : {} (-{} galions).".format(objets[choix_objet - 1], cout))
-
         if objets[choix_objet-1] in objets_obligatoires:
             objets_obligatoires.remove(objets[choix_objet-1])
-
     print("Tous les objets obligatoires ont été achetés !")
     animaux = ["Chouette", "Chat", "Rat", "Crapaud"]
     prix_animaux = [20, 15, 10, 5]
@@ -91,19 +86,15 @@ def acheter_fournitures(personnage):
     print("Vous avez", personnage["Argent"], "galions.")
     for i in range(len(animaux)):
         print("{0}. {1} - {2} galions".format(i + 1, animaux[i], prix_animaux[i]))
-
     choix_animal = int(input("Quel animal voulez-vous ? :"))
     animal = animaux[choix_animal-1]
     cout_animal = prix_animaux[choix_animal-1]
-
     if personnage["Argent"] < cout_animal:
         print("Vous n'avez pas assez d'argent pour cet animal. Fin du jeu.")
         exit()
-
     personnage["Argent"] -= cout_animal
     personnage["Inventaire"].append(animal)
     print("Vous avez choisi : {} (-{} galions).".format(animal, cout_animal))
-
     print("Tous les objets obligatoires ont été achetés avec succès ! Voici votre inventaire final :", personnage["Inventaire"])
     afficher_personnage(personnage)
 
