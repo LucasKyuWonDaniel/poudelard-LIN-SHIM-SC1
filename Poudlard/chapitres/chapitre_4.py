@@ -1,31 +1,29 @@
-from random import randint, random
+import random
+from random import randint
 from Poudlard.univers.personnages import afficher_personnage
 from Poudlard.utils.input_utils import *
 from Poudlard.univers.Maisons import *
 from Poudlard.utils.input_utils import *
 
-def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None) :
-    equipe = { 
-        'nom': maison, 
-        'score': 0, 
-        'a_marque': 0, 
-        'a_stoppe': 0, 
-        'attrape_vifdor': False, 
-        'joueurs': equipe_data ,
-        }
-    if est_joueur and joueur != None:
-        L_joueurs = [joueur["Prenom"] + joueur["Nom"] + "(Attrapeur)"]
-        for i in range(len(equipe_data)) :
-            joueurs = equipe_data[i].split(" ")
-            if joueurs[0] == joueur["Prenom"] and joueurs[1] == joueur["Nom"] :
-                role = joueurs[2]
-                place = i
-        for i in range(len(equipe_data)) :
-            if i != place :
-                joueurs = equipe_data[i].split(" ")
-                if joueurs[2] == "(Attrapeur)" :
-                    joueurs[2] = role
-                L_joueurs.append(joueurs[0] + joueurs[1] + joueurs[2])
+def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None):
+    equipe = {
+        'nom': maison,
+        'score': 0,
+        'a_marque': 0,
+        'a_stoppe': 0,
+        'attrape_vifdor': False,
+        'joueurs': equipe_data,
+    }
+    if est_joueur and joueur is not None:
+        L_joueurs = [joueur["prenom"] + " " + joueur["nom"] + " (Attrapeur)"]
+        place_attrapeur = -1
+        for i in range(len(equipe_data)):
+            if "(Attrapeur)" in equipe_data[i]:
+                place_attrapeur = i
+                break
+        for i in range(len(equipe_data)):
+            if i != place_attrapeur:
+                L_joueurs.append(equipe_data[i])
         equipe["joueurs"] = L_joueurs
     return equipe
 
@@ -69,10 +67,11 @@ def afficher_equipe_maison(equipe):
 def match_quidditch(joueur, maisons):
     equipes = Data_quidditch
     equipe_joueur = equipe_joueur = creer_equipe(joueur["Maison"], equipes[joueur["Maison"]]["joueurs"], est_joueur=True, joueur=joueur)
-    maison_adverse = random.choice(joueur["Maison"])
+    maisons_possibles = [m for m in equipes.keys() if m != joueur["Maison"]]
+    maison_adverse = random.choice(maisons_possibles)
     while maison_adverse == equipe_joueur :
         maison_adverse = random.choice(joueur["Maison"])
-    equipe_adverse = creer_equipe(maison_adverse, equipes[maison_adverse["joueurs"]], est_joueur=False)
+    equipe_adverse = creer_equipe(maison_adverse,equipes[maison_adverse]["joueurs"],est_joueur=False)
     print("Match de Quidditch : {} vs {} !".format(joueur["Maison"], maison_adverse))
     print()
     afficher_equipe_maison(equipe_joueur)
@@ -95,11 +94,11 @@ def match_quidditch(joueur, maisons):
     print("FIN DU MATCH !")
     afficher_score(equipe_joueur, equipe_adverse)
     if equipe_joueur["score"] > equipe_adverse["score"]:
-        print(f"\n {equipe_joueur['nom']} GAGNE LE MATCH !")
+        print("\n {} GAGNE LE MATCH !".format(equipe_joueur["nom"]))
         print("Félicitations ! Vous gagnez 500 points pour votre maison !")
         joueur["Attributs"]["courage"] += 5
     else:
-        print("\n {} GAGNE LE MATCH !".format(equipe_joueur["nom"]))
+        print("\n {} GAGNE LE MATCH !".format(equipe_adverse["nom"]))
         print("Défi perdu... Votre maison perd 100 points.")
         joueur["Attributs"]["courage"] -= 2
 
