@@ -4,6 +4,7 @@ from Poudlard.chapitres.chapitre_3 import *
 from Poudlard.chapitres.chapitre_4 import *
 from Poudlard.utils.input_utils import *
 
+
 def afficher_menu_principal():
     reponse = demander_choix("Que voulez-vous faire ?", [
         "Lancez le chapitre 1 - L'arrivée dans le monde magique",
@@ -27,6 +28,7 @@ def afficher_menu_principal():
     else:
         print("Veuillez saisir une réponse valide.")
         afficher_menu_principal()
+
 
 def lancer_choix_menu():
     while True:

@@ -16,7 +16,8 @@ def rencontrer_amis(joueur) :
     else :
         joueur["Attributs"]["ambition"] += 1
         print("Ron : — Pas de probleme, mon pote !")
-    
+
+
     print("\n  fille entre ensuite, portant déjà une pile de livres.")
     print("— Bonjour, je m’appelle Hermione Granger. Vous avez déjà lu ‘Histoire de la Magie’ ? ")
     L_reponse2 = ["Oui, j’adore apprendre de nouvelles choses !", "Euh… non, je préfère les aventures aux bouquins."]
@@ -28,7 +29,8 @@ def rencontrer_amis(joueur) :
     else :
         joueur["Attributs"]["courage"] += 1
         print("Hermione fronce les sourcils : — Il faudrait pourtant s’y mettre un jour ! ")
-    
+
+
     print("\n Puis un garçon blond entre avec un air arrogant.")
     print("— Je suis Drago Malefoy. Mieux vaut bien choisir ses amis dès le départ, tu ne crois pas ? ")
     L_reponse3 = ["Je lui serre la main poliment.", "Je l’ignore complètement.", "Je lui réponds avec arrogance."]
@@ -46,6 +48,7 @@ def rencontrer_amis(joueur) :
     print("Tes choix semblent déjà en dire long sur ta personnalité !")
     print("Tes attributs mis à jour :", joueur["Attributs"])
 
+
 def mot_de_bienvenue() :
     print("")
     print("\n Bienvenue à Poudlard, jeune sorcier !")
@@ -53,6 +56,7 @@ def mot_de_bienvenue() :
     print("de t’accueillir pour cette nouvelle aventure magique.")
     print("Prépare-toi à faire des choix importants...")
     input("\n(Appuie sur Entrée pour continuer...) ")
+
 
 def ceremonie_repartition(joueur) :
     print("\n La cérémonie de répartition commence dans la Grande Salle...")
@@ -62,6 +66,7 @@ def ceremonie_repartition(joueur) :
     print("Le Choixpeau s’exclame :", maison_gagnante, "!!!")
     print("Tu rejoins les élèves de", maison_gagnante, "sous les acclamations !")
     return joueur
+
 
 def installation_salle_commune(joueur):
     maison = Maisons_data

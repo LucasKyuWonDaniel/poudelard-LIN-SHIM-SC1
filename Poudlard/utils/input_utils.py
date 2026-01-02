@@ -1,10 +1,12 @@
 import json
 
+
 def demander_texte(phrase):
     while True:
         reponse = input(phrase)
         if len(reponse) > 0:
             return reponse
+
 
 def demander_nombre(phrase, minval=None, maxval=None):
     while True:
@@ -23,6 +25,7 @@ def demander_nombre(phrase, minval=None, maxval=None):
                     return nombre
         print("Erreur ! Entrez un nombre valide.")
 
+
 def demander_choix(phrase, choices):
     print(phrase)
     print()
@@ -31,6 +34,7 @@ def demander_choix(phrase, choices):
     print()
     reponse = int(demander_nombre("Votre choix : ", 1, len(choices)))
     return reponse
+
 
 def load_fichier(chemin_fichier):
     with open(chemin_fichier, "r", encoding="utf-8") as f:

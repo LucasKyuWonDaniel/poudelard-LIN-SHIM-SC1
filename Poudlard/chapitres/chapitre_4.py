@@ -5,6 +5,7 @@ from Poudlard.utils.input_utils import *
 from Poudlard.univers.Maisons import *
 from Poudlard.utils.input_utils import *
 
+
 def creer_equipe(maison, equipe_data, est_joueur=False, joueur=None):
     equipe = {
         'nom': maison,
@@ -42,9 +43,11 @@ def tentative_marque(equipe_attaque, equipe_defense, joueur_est_joueur=False):
         equipe_defense["a_stoppe"] += 1
         print("{} bloque l'attaque !".format(equipe_defense["nom"]))
 
+
 def apparition_vifdor():
     proba_vif = randint(1, 6)
     return proba_vif == 6
+
 
 def attraper_vifdor(e1, e2):
     equipe_victorieuse = random.choice([e1, e2])
@@ -53,16 +56,24 @@ def attraper_vifdor(e1, e2):
     print("{} attrape le Vif d'Or ! (+150 points)".format(equipe_victorieuse["nom"]))
     return equipe_victorieuse
 
+
 def afficher_score(e1, e2):
     print("Score actuel :")
     print("- {} : {} points".format(e1["nom"], e1["score"]))
     print("- {} : {} points".format(e2["nom"], e2["score"]))
 
+
 def afficher_equipe_maison(equipe):
     print("Équipe de {} :".format(equipe["nom"]))
-    for i in equipe['joueurs'] :
-        joueur = i.split(" ")
-        print("- {} {} ({})".format(joueur[0], joueur[1], joueur[2]))
+    for i in equipe['joueurs']:
+        joueur = i.split(" (")
+        nom = joueur[0]
+        role = ""
+        if len(joueur) > 1:
+            role_list = joueur[1].split(")")
+            role = role_list[0]
+        print("- {} ({})".format(nom, role))
+
 
 def match_quidditch(joueur, maisons):
     equipes = Data_quidditch
@@ -80,12 +91,13 @@ def match_quidditch(joueur, maisons):
     print()
     print("Tu joues pour", joueur["Maison"],"en tant qu’Attrapeur")
     for tour in range(20):
+        print("")
         print("Tour", tour)
         tentative_marque(equipe_joueur, equipe_adverse, joueur_est_joueur=True)
         tentative_marque(equipe_adverse, equipe_joueur, joueur_est_joueur=False)
         print()
         afficher_score(equipe_joueur, equipe_adverse)
-        input("Appuyez sur Entrée pour continuer")
+        input("\n Appuyez sur Entrée pour continuer")
         if apparition_vifdor():
             print("\n LE VIF D'OR APPARAÎT !")
             equipe_gagnante = attraper_vifdor(equipe_joueur, equipe_adverse)
@@ -105,16 +117,18 @@ def match_quidditch(joueur, maisons):
         actualiser_points_maison(maisons, equipe_joueur["nom"], -100)
         joueur["Attributs"]["courage"] -= 2
 
+
 def lancer_chapitre4_quidditch(joueur, maisons):
     print(" CHAPITRE 4 - L'ÉPREUVE DE QUIDDITCH ")
     input("(Appuie sur Entrée pour commencer le match...) ")
     match_quidditch(joueur, maisons)
     print("\n Fin du Chapitre 4 - Quelle épreuve palpitante !")
     maison_gagnante = afficher_maison_gagnante(maisons)
+    print("")
     print(maison_gagnante, "remporte la Coupe des Quatre Maisons!")
     input("\n(Appuie sur Entrée pour voir votre progression...) ")
     afficher_personnage(joueur)
-    print("Félicitations sorcier ! Vous avez terminé la partie principale du jeu.")
+    print("\nFélicitations sorcier ! Vous avez terminé la partie principale du jeu.")
     exit()
 
 
