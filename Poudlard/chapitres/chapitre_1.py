@@ -69,7 +69,7 @@ def acheter_fournitures(personnage):
             print("{0}. {1} - {2} galions".format(i + 1, objets[i], prix[i]))
         print("Vous avez", personnage["Argent"], "galions.")
         print("Objets obligatoires restants :", objets_obligatoires)
-        choix_objet = int(input("\n Quels objets voulez-vous acheter? : "))
+        choix_objet = demander_nombre("\n Quels objets voulez-vous acheter? : ", 1,8)
         nom_objet_achete = objets[choix_objet-1]
         cout = prix[choix_objet-1]
         if personnage["Argent"] < cout:
